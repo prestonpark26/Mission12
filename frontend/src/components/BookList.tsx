@@ -1,7 +1,8 @@
-import { Book } from './types/Book';
+import { useNavigate } from 'react-router-dom';
+import { Book } from '../types/Book';
 import { useEffect, useState } from 'react';
 
-function BookList() {
+function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -9,11 +10,16 @@ function BookList() {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [sortOrder, setSortOrder] = useState<string>('title');
   const [sortDirection, setSortDirection] = useState<string>('asc');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBooks = async () => {
+      const categoryParams = selectedCategories
+        .map((cat) => `bookCategory=${encodeURIComponent(cat)}`)
+        .join('&');
+
       const response = await fetch(
-        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}&sort=${sortOrder}&order=${sortDirection}`
+        `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}&sort=${sortOrder}&order=${sortDirection}${selectedCategories.length ? `&${categoryParams}` : ''}`
       );
       const data = await response.json();
       setBooks(data.books);
@@ -21,13 +27,18 @@ function BookList() {
       setTotalPages(Math.ceil(totalItems / pageSize));
     };
     fetchBooks();
-  }, [pageSize, pageNum, totalItems, sortOrder, sortDirection]);
+  }, [
+    pageSize,
+    pageNum,
+    totalItems,
+    sortOrder,
+    sortDirection,
+    selectedCategories,
+  ]);
 
   return (
     <>
       <div className="container mt-4">
-        <h1 className="text-center mb-4">Book Listings</h1>
-
         {/* Sorting Controls */}
         <div className="row mb-3">
           <div className="col-md-6">
@@ -83,6 +94,15 @@ function BookList() {
                       <strong>Price:</strong> ${b.price}
                     </li>
                   </ul>
+
+                  <button
+                    className="btn btn-primary"
+                    onClick={() =>
+                      navigate(`/addToCart/${b.title}/${b.bookID}/${b.price}`)
+                    }
+                  >
+                    <i className="bi bi-cart-plus"></i> Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
