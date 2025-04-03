@@ -16,7 +16,7 @@ builder.Services.AddDbContext<BookDbContext>(options =>
 builder.Services.AddCors(options => 
 options.AddPolicy("AllowFrontend",
     policy => {
-        policy.WithOrigins("http://localhost:3000", "https://mango-meadow-0087e801e.6.azurestaticapps.net/")
+        policy.WithOrigins("http://localhost:3000", "https://mango-meadow-0087e801e.6.azurestaticapps.net", "https://mango-cliff-028f63e1e.6.azurestaticapps.net")
         .AllowAnyMethod()
         .AllowAnyHeader();
     }));

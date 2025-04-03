@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\prest\\OneDrive\\Winter2025\\IS413\\Mission11\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DE4827B-5902-7622-2D4C-571FE2C6F885}|backend\\WaterProject.API\\Mission11.API.csproj|c:\\users\\prest\\onedrive\\winter2025\\is413\\mission11\\backend\\waterproject.api\\mission11.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9DE4827B-5902-7622-2D4C-571FE2C6F885}|backend\\WaterProject.API\\Mission11.API.csproj|solutionrelative:backend\\waterproject.api\\mission11.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +14,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Mission11.API",
+              "DocumentMoniker": "C:\\Users\\prest\\OneDrive\\Winter2025\\IS413\\Mission11\\backend\\WaterProject.API\\Mission11.API.csproj",
+              "RelativeDocumentMoniker": "backend\\WaterProject.API\\Mission11.API.csproj",
+              "ToolTip": "C:\\Users\\prest\\OneDrive\\Winter2025\\IS413\\Mission11\\backend\\WaterProject.API\\Mission11.API.csproj",
+              "RelativeToolTip": "backend\\WaterProject.API\\Mission11.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-03T21:05:52.157Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
