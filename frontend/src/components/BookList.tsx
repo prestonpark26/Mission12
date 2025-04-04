@@ -56,7 +56,14 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         <div className="row">
           {books.map((b) => (
             <div key={b.bookID} className="col-md-4 mb-4 d-flex">
-              <div className="card shadow-sm w-100 h-100 d-flex flex-column">
+              <div
+                className="card shadow-sm w-100 h-100 d-flex flex-column"
+                style={{
+                  minHeight: '100%',
+                  wordBreak: 'break-word',
+                  whiteSpace: 'normal',
+                }}
+              >
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{b.title}</h5>
                   <ul className="list-group list-group-flush flex-grow-1 mb-3">
