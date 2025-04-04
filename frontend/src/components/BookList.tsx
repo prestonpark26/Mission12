@@ -55,11 +55,11 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         {/* Book Cards */}
         <div className="row">
           {books.map((b) => (
-            <div key={b.bookID} className="col-md-4 mb-4">
-              <div className="card shadow-sm">
-                <div className="card-body">
+            <div key={b.bookID} className="col-md-4 mb-4 d-flex">
+              <div className="card shadow-sm w-100 h-100 d-flex flex-column">
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{b.title}</h5>
-                  <ul className="list-group list-group-flush">
+                  <ul className="list-group list-group-flush flex-grow-1 mb-3">
                     <li className="list-group-item">
                       <strong>Author:</strong> {b.author}
                     </li>
@@ -82,15 +82,16 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                       <strong>Price:</strong> ${b.price}
                     </li>
                   </ul>
-
-                  <button
-                    className="btn btn-primary"
-                    onClick={() =>
-                      navigate(`/addToCart/${b.title}/${b.bookID}/${b.price}`)
-                    }
-                  >
-                    <i className="bi bi-cart-plus"></i> Add to Cart
-                  </button>
+                  <div className="mt-auto">
+                    <button
+                      className="btn btn-primary w-100"
+                      onClick={() =>
+                        navigate(`/addToCart/${b.title}/${b.bookID}/${b.price}`)
+                      }
+                    >
+                      <i className="bi bi-cart-plus"></i> Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
